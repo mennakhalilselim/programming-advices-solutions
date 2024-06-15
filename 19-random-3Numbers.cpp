@@ -22,7 +22,7 @@ void randomDigits(int count)
 {
     for (int i = 0; i < count; i++)
     {
-        cout << randomNumberInRange(1, 10) << endl;
+        cout << randomNumberInRange(1, 9) << endl;
     }
 }
 
