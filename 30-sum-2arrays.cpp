@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cmath>
 using namespace std;
 
 int readPositiveNumber(string message)
@@ -25,22 +26,8 @@ void fillArrayWithRandomNumbers(int array[100], int length)
     }
 }
 
-int minOfArray(int array[100], int length)
-{
-    int min = array[0];
-    for (int i = 1; i < length; i++)
-    {
-        if (array[i] < min)
-        {
-            min = array[i];
-        }
-    }
-    return min;
-}
-
 void printArray(int array[100], int length)
 {
-    cout << "Array Elements: ";
     for (int i = 0; i < length; i++)
     {
         cout << array[i] << " ";
@@ -48,18 +35,27 @@ void printArray(int array[100], int length)
     cout << endl;
 }
 
-void printMin(int min)
+void sumTwoArrays(int array1[100], int array2[100], int sum[100], int length)
 {
-    cout << "Min Number: " << min << endl;
+    for (int i = 0; i < length; i++)
+    {
+        sum[i] = array1[i] + array2[i];
+    }
 }
 
 int main()
 {
     srand((unsigned)time(NULL));
-    int array[100];
-    int length = readPositiveNumber("Enter array length from 1 to 100: ");
-    fillArrayWithRandomNumbers(array, length);
-    printArray(array, length);
-    printMin(minOfArray(array, length));
+    int array1[100], array2[100], sum[100];
+    int lengthOfArray = readPositiveNumber("Enter array length from 1 to 100: ");
+    fillArrayWithRandomNumbers(array1, lengthOfArray);
+    fillArrayWithRandomNumbers(array2, lengthOfArray);
+    sumTwoArrays(array1, array2, sum, lengthOfArray);
+    cout << "Array1: ";
+    printArray(array1, lengthOfArray);
+    cout << "Array2: ";
+    printArray(array2, lengthOfArray);
+    cout << "Sum: ";
+    printArray(sum, lengthOfArray);
     return 0;
 }

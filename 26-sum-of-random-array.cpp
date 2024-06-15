@@ -25,17 +25,14 @@ void fillArrayWithRandomNumbers(int array[100], int length)
     }
 }
 
-int minOfArray(int array[100], int length)
+int sumOfArray(int array[100], int length)
 {
-    int min = array[0];
+    int sum = array[0];
     for (int i = 1; i < length; i++)
     {
-        if (array[i] < min)
-        {
-            min = array[i];
-        }
+        sum += array[i];
     }
-    return min;
+    return sum;
 }
 
 void printArray(int array[100], int length)
@@ -48,9 +45,9 @@ void printArray(int array[100], int length)
     cout << endl;
 }
 
-void printMin(int min)
+void printResult(int sum)
 {
-    cout << "Min Number: " << min << endl;
+    cout << "Sum of array: " << sum << endl;
 }
 
 int main()
@@ -60,6 +57,6 @@ int main()
     int length = readPositiveNumber("Enter array length from 1 to 100: ");
     fillArrayWithRandomNumbers(array, length);
     printArray(array, length);
-    printMin(minOfArray(array, length));
+    printResult(sumOfArray(array, length));
     return 0;
 }

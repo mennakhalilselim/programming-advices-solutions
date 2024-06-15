@@ -25,17 +25,12 @@ void fillArrayWithRandomNumbers(int array[100], int length)
     }
 }
 
-int minOfArray(int array[100], int length)
+void copyArray(int array[100], int copy[100], int length)
 {
-    int min = array[0];
-    for (int i = 1; i < length; i++)
+    for (int i = 0; i < length; i++)
     {
-        if (array[i] < min)
-        {
-            min = array[i];
-        }
+        copy[i] = array[i];
     }
-    return min;
 }
 
 void printArray(int array[100], int length)
@@ -48,18 +43,16 @@ void printArray(int array[100], int length)
     cout << endl;
 }
 
-void printMin(int min)
-{
-    cout << "Min Number: " << min << endl;
-}
-
 int main()
 {
     srand((unsigned)time(NULL));
-    int array[100];
+    int array[100], copy[100];
     int length = readPositiveNumber("Enter array length from 1 to 100: ");
     fillArrayWithRandomNumbers(array, length);
+    copyArray(array, copy, length);
+    cout << "Original Array: " << endl;
     printArray(array, length);
-    printMin(minOfArray(array, length));
+    cout << "Copy Array: " << endl;
+    printArray(copy, length);
     return 0;
 }
